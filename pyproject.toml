@@ -8,6 +8,8 @@ version = "0.1.0"
 description = "Historical pull request collection and AI review benchmarking platform"
 requires-python = ">=3.12"
 dependencies = [
+    "alembic>=1.14",
+    "psycopg[binary]>=3.2",
     "sqlalchemy>=2.0",
 ]
 
