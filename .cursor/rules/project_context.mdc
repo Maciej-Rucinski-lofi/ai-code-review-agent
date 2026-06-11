@@ -1,0 +1,50 @@
+---
+alwaysApply: true
+---
+
+# Project Context
+
+Project name:
+PR Intelligence Platform
+
+Goal:
+
+Build a system that collects historical pull requests from large open source repositories and performs automated analysis.
+
+The system is NOT a GitHub bot.
+
+The system MUST NOT post comments to public repositories.
+
+Primary purpose:
+
+- collect pull requests
+- collect review comments
+- collect diffs
+- collect metadata
+- perform AI analysis
+- compare AI findings with human reviews
+- build benchmark datasets
+
+Target repositories:
+
+- django/django
+- pandas-dev/pandas
+- numpy/numpy
+- golang/go
+- kubernetes/kubernetes
+
+The project should be developed as a portfolio-quality engineering project.
+
+The codebase must prioritize:
+
+- maintainability
+- readability
+- testability
+- modularity
+
+The project is expected to evolve toward:
+
+- AI Code Review
+- Review Benchmarking
+- Multi-Agent Analysis
+- Research Platform

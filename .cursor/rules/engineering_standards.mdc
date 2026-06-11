@@ -1,0 +1,51 @@
+---
+alwaysApply: true
+---
+
+# Engineering Standards
+
+Always generate production-grade code.
+
+Requirements:
+
+- Python 3.12+
+- Type hints everywhere
+- Strict mypy compatibility
+- Ruff compliant
+- Pytest coverage
+
+Architecture rules:
+
+- Prefer composition over inheritance
+- Avoid global state
+- Use dependency injection
+- Separate domain from infrastructure
+
+Code generation rules:
+
+- Keep functions small
+- Keep classes focused
+- Avoid unnecessary abstractions
+- Avoid premature optimization
+
+Testing:
+
+- Unit tests required
+- Mock external services
+- No live GitHub calls in unit tests
+
+Database:
+
+- SQLAlchemy 2.x
+- Alembic migrations
+
+Documentation:
+
+- Public functions require docstrings
+- Complex business logic requires comments
+
+Never generate:
+
+- God objects
+- Massive service classes
+- Utility dumping grounds

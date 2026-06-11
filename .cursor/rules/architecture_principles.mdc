@@ -1,0 +1,58 @@
+---
+alwaysApply: true
+---
+
+# Architecture Principles
+
+The system follows modular monolith architecture.
+
+Do NOT introduce:
+
+- microservices
+- kubernetes
+- distributed messaging
+- event sourcing
+
+until explicitly requested.
+
+Initial architecture:
+
+api/
+collector/
+analysis/
+benchmark/
+database/
+
+Each module owns:
+
+- models
+- services
+- repositories
+
+Dependency direction:
+
+api
+↓
+application services
+↓
+domain
+↓
+infrastructure
+
+The domain layer must not depend on:
+
+- FastAPI
+- SQLAlchemy
+- GitHub SDKs
+- AI SDKs
+
+External systems:
+
+- GitHub API
+- OpenAI API
+
+must be wrapped behind interfaces.
+
+Prefer simple solutions.
+
+Complexity must be justified.

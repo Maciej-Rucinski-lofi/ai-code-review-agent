@@ -1,0 +1,1 @@
+"""GitHub data collection module."""
