@@ -137,12 +137,14 @@ class GitHubClient:
         repository: str,
         state: str,
         page: int,
+        *,
+        per_page: int = 100,
     ) -> PaginatedResponse[PullRequest]:
         """Return one page of pull requests for a repository."""
         result = self._request_json(
             "GET",
             f"/repos/{owner}/{repository}/pulls",
-            params={"state": state, "page": page},
+            params={"state": state, "page": page, "per_page": per_page},
         )
         items = [PullRequest.from_api(item) for item in result.json_body]
         pagination = build_pagination_info(
