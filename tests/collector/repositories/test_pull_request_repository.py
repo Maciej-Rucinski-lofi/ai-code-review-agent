@@ -87,6 +87,40 @@ def test_find_by_github_ids_returns_empty_dict_for_empty_input(
     assert result == {}
 
 
+def test_find_by_repository_id_returns_pull_requests(
+    pull_request_repository: PullRequestRepository,
+    session: MagicMock,
+) -> None:
+    """Return pull requests for a repository with optional limit."""
+    first = PullRequest(
+        github_id=1001,
+        repository_id=1,
+        number=42,
+        title="First",
+        body=None,
+        state="closed",
+        author_login="alice",
+        merged_at=MERGED_AT,
+    )
+    second = PullRequest(
+        github_id=1002,
+        repository_id=1,
+        number=43,
+        title="Second",
+        body=None,
+        state="open",
+        author_login="bob",
+        merged_at=None,
+    )
+    scalars = session.scalars.return_value
+    scalars.all.return_value = [first, second]
+
+    result = pull_request_repository.find_by_repository_id(1, limit=10)
+
+    session.scalars.assert_called_once()
+    assert result == [first, second]
+
+
 def test_find_by_github_ids_returns_records_keyed_by_github_id(
     pull_request_repository: PullRequestRepository,
     session: MagicMock,

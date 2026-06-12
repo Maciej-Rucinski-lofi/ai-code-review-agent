@@ -34,6 +34,22 @@ class PullRequestRepository:
         )
         return self._session.scalars(statement).first()
 
+    def find_by_repository_id(
+        self,
+        repository_id: int,
+        *,
+        limit: int | None = None,
+    ) -> list[PullRequest]:
+        """Return pull requests for a repository, optionally limited."""
+        statement = (
+            select(PullRequest)
+            .where(PullRequest.repository_id == repository_id)
+            .order_by(PullRequest.number)
+        )
+        if limit is not None:
+            statement = statement.limit(limit)
+        return list(self._session.scalars(statement).all())
+
     def find_by_github_ids(self, github_ids: list[int]) -> dict[int, PullRequest]:
         """Return existing pull requests keyed by GitHub identifier."""
         if not github_ids:
