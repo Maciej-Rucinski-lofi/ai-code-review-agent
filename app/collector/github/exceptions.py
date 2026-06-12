@@ -65,6 +65,10 @@ class PullRequestNotFound(GitHubError):
     """Raised when a pull request cannot be found."""
 
 
+class UnexpectedGitHubResponse(GitHubError):
+    """Raised when the GitHub API returns an unexpected or malformed response."""
+
+
 def build_response_info(
     *,
     status_code: int,
