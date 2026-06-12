@@ -12,6 +12,7 @@ from app.collector.github.exceptions import (
     PullRequestNotFound,
     RateLimitExceeded,
     RepositoryNotFound,
+    ReviewNotFound,
     UnexpectedGitHubResponse,
 )
 from app.collector.github.models import (
@@ -39,6 +40,7 @@ __all__ = [
     "RateLimitInfo",
     "Repository",
     "RepositoryNotFound",
+    "ReviewNotFound",
     "UnexpectedGitHubResponse",
     "Review",
     "ReviewComment",
