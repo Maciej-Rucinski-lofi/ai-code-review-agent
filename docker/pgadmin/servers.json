@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "PR Intelligence PostgreSQL",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "pr_intelligence",
+      "Username": "postgres",
+      "PassFile": "/pgpass",
+      "SSLMode": "prefer"
+    }
+  }
+}
