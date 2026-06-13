@@ -5,6 +5,7 @@ import importlib
 MODULES = [
     "app",
     "app.api",
+    "app.cli",
     "app.collector",
     "app.analysis",
     "app.benchmark",
